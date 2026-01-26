@@ -1,0 +1,57 @@
+# dataset
+#data_dir: '/data/datasets/DVS/DVS_Cifar10/CIFAR10DVS/'
+data_dir: '/data/datasets/'  # 131
+dataset: shd
+num_classes: 20
+#event_size: 64
+
+#data augmentation
+color_jitter: 0.
+interpolation: bicubic
+train_interpolation: bicubic
+epochs: 110   #epochs
+
+mixup: 0.0
+mixup_off_epoch: 0.  # mixup off
+mixup_prob: 0.0
+mixup_mode: batch
+mixup_switch_prob: 0.0
+cutmix: 0.0
+reprob: 0.0
+remode: const
+
+# model structure
+model: "TIMv2_bl_TIMv1_seq"
+step: 10
+in_channels: 1
+embed_dim: 256
+num_heads: 16
+depths: 2
+
+
+# train hyperparam
+amp: True
+batch_size: 64
+val_batch_size: 64
+lr: 2.0e-3
+min_lr: 3.0e-5
+sched: cosine
+weight_decay: 0.05
+cooldown_epochs: 10
+warmup_epochs: 5
+warmup_lr: 5.0e-4
+opt: adamw
+smoothing: 0.1
+clip_gard: 1.0
+ema: 0.9995
+workers: 8
+seed: 43
+log_interval: 200
+
+# log dir
+output: "/home/shensicheng/log/TIMv2/baseline/shd/"
+
+# device
+device: 4
+
+
