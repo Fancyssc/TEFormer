@@ -2,15 +2,6 @@
 
 ![Alt text](imgs/TEFormer_pipe.png)
 
-## Reference
-
-Here is the official implemented code of TEFormer which is the **1st** brain-inspired bidirectional temporal enhancement Spiking Transformer. The code is based on [STEP](https://github.com/Fancyssc/STEP) and [Braincog](https://github.com/BrainCog-X/Brain-Cog)
-
-## Requirements
-### STEP Environment
-```
-git clone https://github.com/Fancyssc/STEP.git
-```
 ### Dataset Preparation
 **Datasets Needed**: CIFAR10-DVS, N-CALTECH101, UCF101DVS, NCARS, HMDB51DVS, CIFAR10/100, SVHN
 
