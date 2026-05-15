@@ -1,6 +1,6 @@
-# TEFormer: Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers
+# TEFormer: Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers ([ICML 2026](https://arxiv.org/abs/2601.18274))
 
-![Alt text](imgs/new_pipe.pdf)
+![Alt text](imgs/new_pipe.png)
 
 ## Reference
 
