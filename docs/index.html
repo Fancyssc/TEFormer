@@ -40,9 +40,9 @@
     <main id="top">
       <section class="hero" id="overview">
         <div class="hero-copy">
-          <p class="conference">ICML 2026</p>
           <h1>TEFormer</h1>
           <h2>Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers</h2>
+          <p class="conference">ICML 2026</p>
           <p class="authors">
             Sicheng Shen, Mingyang Lv, Bing Han, Dongcheng Zhao, Guobin Shen, Feifei Zhao, Yi Zeng
           </p>
@@ -70,6 +70,9 @@
               <marker id="arrowPink" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
                 <path d="M0,0 L8,4 L0,8 Z" fill="#ff2f86" />
               </marker>
+              <marker id="arrowDark" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#66738a" />
+              </marker>
               <pattern id="spikeGrid" width="28" height="28" patternUnits="userSpaceOnUse">
                 <path d="M28 0H0v28" fill="none" stroke="#d9e2f3" stroke-width="1" />
               </pattern>
@@ -88,6 +91,15 @@
               <circle cx="168" cy="224" r="4" fill="#1667ff" />
             </g>
 
+            <g class="patch-embed">
+              <text x="70" y="296" class="svg-label">Patch Embedding</text>
+              <rect x="58" y="318" width="22" height="30" fill="#f6f9fe" stroke="#aab9d2" />
+              <rect x="83" y="318" width="22" height="30" fill="#f6f9fe" stroke="#aab9d2" />
+              <rect x="108" y="318" width="22" height="30" fill="#f6f9fe" stroke="#aab9d2" />
+              <rect x="133" y="318" width="22" height="30" fill="#f6f9fe" stroke="#aab9d2" />
+              <text x="166" y="337" class="svg-muted">...</text>
+            </g>
+
             <g class="spikes output">
               <text x="716" y="120" class="svg-label">Output Spikes</text>
               <rect x="700" y="140" width="124" height="100" fill="url(#spikeGrid)" stroke="#d7e0ef" />
@@ -98,8 +110,20 @@
               <circle cx="724" cy="224" r="4" fill="#ff2f86" />
             </g>
 
+            <g class="prediction-head">
+              <rect x="716" y="304" width="80" height="72" rx="7" fill="#fbfdff" stroke="#c8d4e6" />
+              <text x="756" y="334" text-anchor="middle" class="svg-label">Prediction</text>
+              <text x="756" y="356" text-anchor="middle" class="svg-label">Head</text>
+              <path d="M756 376 V424" stroke="#6b7890" stroke-width="2" marker-end="url(#arrowDark)" />
+              <text x="756" y="454" text-anchor="middle" class="svg-label">Class</text>
+            </g>
+
+            <text x="22" y="168" class="svg-muted italic">t</text>
+            <text x="842" y="168" class="svg-muted italic">t</text>
             <path class="flow-blue" d="M190 190 H278" marker-end="url(#arrowBlue)" />
             <path class="flow-blue" d="M602 190 H690" marker-end="url(#arrowBlue)" />
+            <path class="flow-dark" d="M156 332 H258 V290 H328" marker-end="url(#arrowBlue)" />
+            <path class="flow-dark" d="M756 242 V304" marker-end="url(#arrowDark)" />
 
             <g class="tea">
               <rect x="278" y="96" width="324" height="198" rx="8" fill="#f5faff" stroke="#1667ff" />
@@ -149,6 +173,8 @@
 
             <path class="flow-blue" d="M602 288 C666 288 666 348 602 348" marker-end="url(#arrowBlue)" />
             <path class="flow-pink" d="M278 438 C214 438 214 300 278 300" marker-end="url(#arrowPink)" />
+            <text x="220" y="420" class="svg-blue">Enhance</text>
+            <text x="618" y="462" class="svg-pink">Feedback</text>
 
             <g class="legend" transform="translate(332 560)">
               <rect width="216" height="34" rx="7" fill="#fbfdff" stroke="#cad8ef" />
@@ -163,8 +189,7 @@
 
       <section class="method" id="method">
         <div class="section-heading">
-          <p>Method</p>
-          <h2>Temporal fusion split across attention and MLP.</h2>
+          <h2>Method</h2>
         </div>
         <div class="method-grid">
           <article class="method-panel blue-panel">
@@ -205,8 +230,7 @@
 
       <section class="results" id="results">
         <div class="section-heading">
-          <p>Results</p>
-          <h2>Consistent gains across static, neuromorphic, and temporal benchmarks.</h2>
+          <h2>Results</h2>
         </div>
         <div class="score-table" role="table" aria-label="TEFormer benchmark results">
           <div role="row" class="score-row labels">
@@ -233,8 +257,7 @@
 
       <section class="encoding">
         <div class="section-heading">
-          <p>Encoding</p>
-          <h2>Robust temporal gains under multiple neural encodings.</h2>
+          <h2>Encoding</h2>
         </div>
         <div class="encoding-grid">
           <article>
@@ -289,8 +312,7 @@
 
       <section class="citation" id="citation">
         <div class="section-heading">
-          <p>Citation</p>
-          <h2>Reference TEFormer in your work.</h2>
+          <h2>Citation</h2>
         </div>
         <div class="bibtex">
           <button class="copy-button" type="button" aria-label="Copy BibTeX">
