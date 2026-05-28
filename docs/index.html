@@ -8,7 +8,7 @@
       content="TEFormer: Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers, ICML 2026."
     />
     <title>TEFormer | ICML 2026</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css?v=paper-figure" />
   </head>
   <body>
     <header class="site-header">
@@ -46,13 +46,21 @@
           <p class="authors">
             Sicheng Shen, Mingyang Lv, Bing Han, Dongcheng Zhao, Guobin Shen, Feifei Zhao, Yi Zeng
           </p>
+          <p class="claim">The first bidirectional temporal enhancement framework for Spiking Transformers.</p>
           <p class="abstract">
-            A brain-inspired Spiking Transformer that couples parallel forward temporal fusion with gated backward
-            tracing for consistent spiking representations.
+            TEFormer couples parallel forward temporal fusion in attention with gated backward temporal tracing in the
+            MLP, yielding a structured brain-inspired path for stronger spatiotemporal representations.
           </p>
         </div>
 
         <div class="hero-visual" aria-label="TEFormer bidirectional temporal fusion diagram">
+          <figure class="paper-figure">
+            <img
+              src="https://raw.githubusercontent.com/Fancyssc/TEFormer/main/imgs/new_pipe.png"
+              alt="TEFormer paper overview figure showing the forward TEA stream and backward T-MLP stream"
+            />
+            <figcaption>Figure 1. TEFormer pipeline with forward TEA and backward T-MLP temporal fusion.</figcaption>
+          </figure>
           <svg class="pipeline-svg" viewBox="0 0 880 620" role="img">
             <title>TEFormer pipeline with forward TEA stream and backward T-MLP stream</title>
             <defs>
@@ -337,6 +345,6 @@
     </footer>
 
     <div class="toast" role="status" aria-live="polite">BibTeX copied</div>
-    <script src="script.js"></script>
+    <script src="script.js?v=paper-figure"></script>
   </body>
 </html>
