@@ -49,7 +49,7 @@ a {
   grid-template-columns: auto 1fr auto auto;
   align-items: center;
   gap: 24px;
-  padding: 16px clamp(20px, 5vw, 56px);
+  padding: 12px clamp(20px, 5vw, 42px);
   background: rgba(255, 255, 255, 0.88);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
@@ -174,40 +174,40 @@ main {
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(320px, 0.8fr) minmax(500px, 1.2fr);
-  gap: clamp(28px, 5vw, 64px);
+  grid-template-columns: minmax(360px, 0.74fr) minmax(620px, 1.26fr);
+  gap: clamp(34px, 4.5vw, 62px);
   align-items: center;
-  min-height: calc(100vh - 75px);
-  padding: clamp(24px, 3vw, 36px) clamp(20px, 5vw, 56px) 28px;
+  min-height: calc(100vh - 59px);
+  padding: clamp(44px, 6vw, 72px) clamp(24px, 4.8vw, 44px) 42px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 251, 255, 0.94));
   border-bottom: 1px solid var(--line);
 }
 
 .conference {
-  margin: 0 0 16px;
+  margin: 34px 0 0;
   color: var(--blue);
-  font-size: clamp(20px, 1.9vw, 27px);
+  font-size: clamp(22px, 2.2vw, 32px);
   font-weight: 800;
 }
 
 .hero h1 {
   margin: 0;
-  font-size: clamp(58px, 6.2vw, 80px);
-  line-height: 0.9;
+  font-size: clamp(76px, 8.8vw, 132px);
+  line-height: 0.86;
   letter-spacing: 0;
 }
 
 .hero h2 {
   max-width: 680px;
-  margin: 18px 0 0;
-  font-size: clamp(22px, 2.1vw, 29px);
+  margin: 24px 0 0;
+  font-size: clamp(24px, 2.15vw, 31px);
   line-height: 1.12;
   letter-spacing: 0;
 }
 
 .authors {
   max-width: 720px;
-  margin: 18px 0 0;
+  margin: 30px 0 0;
   color: var(--blue);
   font-size: 16px;
   line-height: 1.7;
@@ -217,11 +217,11 @@ main {
 .abstract {
   position: relative;
   max-width: 620px;
-  margin: 20px 0 0;
+  margin: 40px 0 0;
   padding-left: 20px;
   color: #314057;
-  font-size: 17px;
-  line-height: 1.7;
+  font-size: 18px;
+  line-height: 1.85;
 }
 
 .abstract::before {
@@ -273,7 +273,8 @@ main {
 }
 
 .flow-blue,
-.flow-pink {
+.flow-pink,
+.flow-dark {
   fill: none;
   stroke-width: 2.6;
   stroke-linecap: round;
@@ -285,6 +286,10 @@ main {
 
 .flow-pink {
   stroke: url(#pinkLine);
+}
+
+.flow-dark {
+  stroke: #66738a;
 }
 
 .mini-spikes rect {
@@ -314,30 +319,19 @@ main {
 }
 
 section:not(.hero) {
-  padding: clamp(48px, 7vw, 88px) clamp(20px, 5vw, 56px);
+  padding: clamp(34px, 4.5vw, 64px) clamp(24px, 4.8vw, 44px);
 }
 
 .section-heading {
-  display: grid;
-  grid-template-columns: minmax(160px, 0.36fr) minmax(320px, 0.64fr);
-  gap: 26px;
-  align-items: end;
+  display: block;
   max-width: 1320px;
-  margin: 0 auto 30px;
-}
-
-.section-heading p {
-  margin: 0;
-  color: var(--blue);
-  font-size: 16px;
-  font-weight: 850;
-  text-transform: uppercase;
+  margin: 0 auto 26px;
 }
 
 .section-heading h2 {
   margin: 0;
-  font-size: clamp(29px, 4vw, 54px);
-  line-height: 1.02;
+  font-size: clamp(34px, 4vw, 48px);
+  line-height: 1;
   letter-spacing: 0;
 }
 
@@ -356,10 +350,10 @@ section:not(.hero) {
 
 .method-panel {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(230px, 0.78fr);
+  grid-template-columns: minmax(250px, 1fr) minmax(210px, 0.62fr);
   gap: 24px;
-  min-height: 344px;
-  padding: clamp(24px, 4vw, 42px);
+  min-height: 330px;
+  padding: clamp(24px, 3vw, 34px);
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -382,7 +376,7 @@ section:not(.hero) {
 }
 
 .method-panel p {
-  margin: 18px 0 0;
+  margin: 16px 0 0;
   color: #34445b;
   font-size: 16px;
   line-height: 1.7;
@@ -391,7 +385,7 @@ section:not(.hero) {
 .method-panel ul {
   display: grid;
   gap: 12px;
-  margin: 26px 0 0;
+  margin: 24px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -440,7 +434,7 @@ section:not(.hero) {
   display: grid;
   gap: 12px;
   align-content: center;
-  padding: 22px;
+  padding: 20px;
   background: linear-gradient(180deg, #f8fbff, #fff);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -484,7 +478,7 @@ section:not(.hero) {
 
 .score-row span {
   display: grid;
-  min-height: 86px;
+  min-height: 78px;
   place-items: center;
   padding: 14px;
   border-right: 1px solid var(--line);
@@ -505,7 +499,7 @@ section:not(.hero) {
 .score-row.values span {
   color: var(--blue);
   border-top: 1px solid var(--line);
-  font-size: clamp(30px, 3.4vw, 46px);
+  font-size: clamp(32px, 3.8vw, 48px);
   font-weight: 850;
   letter-spacing: 0;
 }
@@ -534,7 +528,7 @@ section:not(.hero) {
 }
 
 .encoding-grid article {
-  min-height: 238px;
+  min-height: 226px;
   padding: 24px;
   background: #fff;
   border: 1px solid var(--line-strong);
