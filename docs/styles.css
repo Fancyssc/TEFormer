@@ -214,10 +214,19 @@ main {
   font-weight: 650;
 }
 
+.claim {
+  max-width: 640px;
+  margin: 34px 0 0;
+  color: var(--ink);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1.25;
+  font-weight: 850;
+}
+
 .abstract {
   position: relative;
   max-width: 620px;
-  margin: 40px 0 0;
+  margin: 28px 0 0;
   padding-left: 20px;
   color: #314057;
   font-size: 18px;
@@ -241,8 +250,33 @@ main {
   min-width: 0;
 }
 
-.pipeline-svg {
+.paper-figure {
+  margin: 0;
+  padding: 18px 18px 14px;
+  background: #fff;
+  border: 1px solid #cad8ef;
+  border-radius: 8px;
+  box-shadow: 0 22px 46px rgba(31, 71, 130, 0.14);
+}
+
+.paper-figure img {
   display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+}
+
+.paper-figure figcaption {
+  margin-top: 12px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.pipeline-svg {
+  display: none;
   width: 100%;
   filter: drop-shadow(0 22px 46px rgba(31, 71, 130, 0.14));
 }
@@ -783,6 +817,7 @@ pre {
   }
 
   .authors,
+  .claim,
   .abstract {
     font-size: 15px;
   }
