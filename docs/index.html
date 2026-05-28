@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="TEFormer: Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers, ICML 2026."
+    />
+    <title>TEFormer | ICML 2026</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="TEFormer home">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>TEFormer</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#overview">Overview</a>
+        <a href="#method">Method</a>
+        <a href="#results">Results</a>
+        <a href="#citation">Citation</a>
+      </nav>
+      <div class="header-actions">
+        <a class="button secondary" href="https://arxiv.org/abs/2601.18274" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6z"/><path d="M14 2v6h5"/><path d="M9 13h6M9 17h6M9 9h2"/></svg>
+          Paper
+        </a>
+        <a class="button primary" href="https://github.com/Fancyssc/TEFormer" target="_blank" rel="noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.77.61-3.36-1.18-3.36-1.18-.45-1.15-1.11-1.46-1.11-1.46-.91-.62.07-.61.07-.61 1 .07 1.53 1.04 1.53 1.04.9 1.52 2.35 1.08 2.92.83.09-.65.35-1.08.63-1.33-2.21-.25-4.54-1.11-4.54-4.93 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 7.04c.85 0 1.7.11 2.5.33 1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.83-2.34 4.67-4.56 4.92.36.31.68.92.68 1.86v2.56c0 .27.18.58.69.48A10 10 0 0 0 12 2z"/></svg>
+          Code
+        </a>
+      </div>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" id="overview">
+        <div class="hero-copy">
+          <p class="conference">ICML 2026</p>
+          <h1>TEFormer</h1>
+          <h2>Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers</h2>
+          <p class="authors">
+            Sicheng Shen, Mingyang Lv, Bing Han, Dongcheng Zhao, Guobin Shen, Feifei Zhao, Yi Zeng
+          </p>
+          <p class="abstract">
+            A brain-inspired Spiking Transformer that couples parallel forward temporal fusion with gated backward
+            tracing for consistent spiking representations.
+          </p>
+        </div>
+
+        <div class="hero-visual" aria-label="TEFormer bidirectional temporal fusion diagram">
+          <svg class="pipeline-svg" viewBox="0 0 880 620" role="img">
+            <title>TEFormer pipeline with forward TEA stream and backward T-MLP stream</title>
+            <defs>
+              <linearGradient id="blueLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#1667ff" />
+                <stop offset="1" stop-color="#12b5ff" />
+              </linearGradient>
+              <linearGradient id="pinkLine" x1="0" x2="1">
+                <stop offset="0" stop-color="#ff2f86" />
+                <stop offset="1" stop-color="#ff79ad" />
+              </linearGradient>
+              <marker id="arrowBlue" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#1667ff" />
+              </marker>
+              <marker id="arrowPink" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
+                <path d="M0,0 L8,4 L0,8 Z" fill="#ff2f86" />
+              </marker>
+              <pattern id="spikeGrid" width="28" height="28" patternUnits="userSpaceOnUse">
+                <path d="M28 0H0v28" fill="none" stroke="#d9e2f3" stroke-width="1" />
+              </pattern>
+            </defs>
+
+            <rect x="18" y="18" width="844" height="584" rx="8" fill="#ffffff" stroke="#cad8ef" />
+            <text x="440" y="54" text-anchor="middle" class="svg-title">TEFormer Block x L</text>
+
+            <g class="spikes input">
+              <text x="70" y="120" class="svg-label">Input Spikes</text>
+              <rect x="58" y="140" width="124" height="100" fill="url(#spikeGrid)" stroke="#d7e0ef" />
+              <circle cx="82" cy="168" r="4" fill="#1667ff" />
+              <circle cx="126" cy="168" r="4" fill="#ff2f86" />
+              <circle cx="154" cy="196" r="4" fill="#1667ff" />
+              <circle cx="98" cy="224" r="4" fill="#ff2f86" />
+              <circle cx="168" cy="224" r="4" fill="#1667ff" />
+            </g>
+
+            <g class="spikes output">
+              <text x="716" y="120" class="svg-label">Output Spikes</text>
+              <rect x="700" y="140" width="124" height="100" fill="url(#spikeGrid)" stroke="#d7e0ef" />
+              <circle cx="724" cy="168" r="4" fill="#1667ff" />
+              <circle cx="780" cy="168" r="4" fill="#ff2f86" />
+              <circle cx="752" cy="196" r="4" fill="#1667ff" />
+              <circle cx="808" cy="224" r="4" fill="#1667ff" />
+              <circle cx="724" cy="224" r="4" fill="#ff2f86" />
+            </g>
+
+            <path class="flow-blue" d="M190 190 H278" marker-end="url(#arrowBlue)" />
+            <path class="flow-blue" d="M602 190 H690" marker-end="url(#arrowBlue)" />
+
+            <g class="tea">
+              <rect x="278" y="96" width="324" height="198" rx="8" fill="#f5faff" stroke="#1667ff" />
+              <text x="440" y="126" text-anchor="middle" class="svg-blue">Forward Temporal Stream (TEA)</text>
+              <text x="440" y="151" text-anchor="middle" class="svg-muted">parallel forward fusion</text>
+              <g class="mini-spikes" transform="translate(318 176)">
+                <rect width="58" height="48" rx="5" />
+                <path d="M10 38V20M20 38V12M30 38V26M40 38V16M50 38V31" />
+              </g>
+              <g class="mini-spikes" transform="translate(410 176)">
+                <rect width="58" height="48" rx="5" />
+                <path d="M10 38V28M20 38V14M30 38V18M40 38V24M50 38V10" />
+              </g>
+              <g class="mini-spikes" transform="translate(502 176)">
+                <rect width="58" height="48" rx="5" />
+                <path d="M10 38V30M20 38V22M30 38V12M40 38V18M50 38V28" />
+              </g>
+              <path class="flow-blue" d="M347 226 V258" marker-end="url(#arrowBlue)" />
+              <path class="flow-blue" d="M439 226 V258" marker-end="url(#arrowBlue)" />
+              <path class="flow-blue" d="M531 226 V258" marker-end="url(#arrowBlue)" />
+              <rect x="332" y="258" width="216" height="58" rx="7" fill="#edf5ff" stroke="#1667ff" />
+              <text x="440" y="284" text-anchor="middle" class="svg-blue">Temporal Enhancement</text>
+              <text x="440" y="306" text-anchor="middle" class="svg-blue">Attention</text>
+            </g>
+
+            <g class="tmlp">
+              <rect x="278" y="348" width="324" height="180" rx="8" fill="#fff6fa" stroke="#ff2f86" />
+              <text x="440" y="380" text-anchor="middle" class="svg-pink">Backward Temporal Stream (T-MLP)</text>
+              <text x="440" y="405" text-anchor="middle" class="svg-muted">gated backward tracing</text>
+              <g class="mini-spikes pink" transform="translate(502 432)">
+                <rect width="58" height="48" rx="5" />
+                <path d="M10 38V22M20 38V12M30 38V29M40 38V18M50 38V32" />
+              </g>
+              <g class="mini-spikes pink" transform="translate(410 432)">
+                <rect width="58" height="48" rx="5" />
+                <path d="M10 38V26M20 38V18M30 38V10M40 38V30M50 38V22" />
+              </g>
+              <g class="mini-spikes pink" transform="translate(318 432)">
+                <rect width="58" height="48" rx="5" />
+                <path d="M10 38V30M20 38V15M30 38V21M40 38V13M50 38V29" />
+              </g>
+              <path class="flow-pink" d="M500 456 H470" marker-end="url(#arrowPink)" />
+              <path class="flow-pink" d="M408 456 H378" marker-end="url(#arrowPink)" />
+              <rect x="365" y="488" width="150" height="52" rx="7" fill="#fff0f6" stroke="#ff2f86" />
+              <text x="440" y="520" text-anchor="middle" class="svg-pink">Temporal MLP</text>
+            </g>
+
+            <path class="flow-blue" d="M602 288 C666 288 666 348 602 348" marker-end="url(#arrowBlue)" />
+            <path class="flow-pink" d="M278 438 C214 438 214 300 278 300" marker-end="url(#arrowPink)" />
+
+            <g class="legend" transform="translate(332 560)">
+              <rect width="216" height="34" rx="7" fill="#fbfdff" stroke="#cad8ef" />
+              <path d="M18 17 H52" stroke="#1667ff" stroke-width="3" />
+              <text x="62" y="21">TEA forward</text>
+              <path d="M126 17 H160" stroke="#ff2f86" stroke-width="3" />
+              <text x="170" y="21">T-MLP backward</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section class="method" id="method">
+        <div class="section-heading">
+          <p>Method</p>
+          <h2>Temporal fusion split across attention and MLP.</h2>
+        </div>
+        <div class="method-grid">
+          <article class="method-panel blue-panel">
+            <div class="panel-copy">
+              <h3>Temporal Enhancement Attention</h3>
+              <p>TEA applies a learnable exponential temporal mask to the value pathway, enabling synchronized forward fusion with a single scalar.</p>
+              <ul>
+                <li>Parallel forward temporal fusion</li>
+                <li>Hyperparameter-free temporal decay</li>
+                <li>Preserves efficient QK attention</li>
+              </ul>
+            </div>
+            <div class="formula">
+              <span>alpha = 0.5 + 0.5 sigma(theta)</span>
+              <span>M maps historical time steps</span>
+              <span>V enhanced = M V</span>
+            </div>
+          </article>
+
+          <article class="method-panel pink-panel">
+            <div class="panel-copy">
+              <h3>Temporal MLP</h3>
+              <p>T-MLP replaces conventional upsampling with a gated reverse-time update that carries future context backward through the sequence.</p>
+              <ul>
+                <li>Gated backward temporal tracing</li>
+                <li>Single-gate recurrent structure</li>
+                <li>Bidirectional temporal consistency</li>
+              </ul>
+            </div>
+            <div class="formula">
+              <span>h[T-1] = LIF(W_in X[T-1])</span>
+              <span>h[r] blends h[r+1] and X[r]</span>
+              <span>Y[t] = LIF(BN(W_o h[t]))</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="results" id="results">
+        <div class="section-heading">
+          <p>Results</p>
+          <h2>Consistent gains across static, neuromorphic, and temporal benchmarks.</h2>
+        </div>
+        <div class="score-table" role="table" aria-label="TEFormer benchmark results">
+          <div role="row" class="score-row labels">
+            <span role="columnheader">CIFAR10</span>
+            <span role="columnheader">CIFAR100</span>
+            <span role="columnheader">CIFAR10-DVS</span>
+            <span role="columnheader">N-CALTECH101</span>
+            <span role="columnheader">NCARS</span>
+            <span role="columnheader">SHD</span>
+            <span role="columnheader">UCF101-DVS</span>
+          </div>
+          <div role="row" class="score-row values">
+            <span role="cell">96.24</span>
+            <span role="cell">79.84</span>
+            <span role="cell">81.90</span>
+            <span role="cell">78.50</span>
+            <span role="cell">95.95</span>
+            <span role="cell">90.19</span>
+            <span role="cell">63.16</span>
+          </div>
+          <p>Top-1 Accuracy (%)</p>
+        </div>
+      </section>
+
+      <section class="encoding">
+        <div class="section-heading">
+          <p>Encoding</p>
+          <h2>Robust temporal gains under multiple neural encodings.</h2>
+        </div>
+        <div class="encoding-grid">
+          <article>
+            <svg viewBox="0 0 220 92" aria-hidden="true">
+              <path d="M20 70H200" />
+              <circle cx="35" cy="48" r="3" /><circle cx="62" cy="32" r="3" /><circle cx="94" cy="57" r="3" /><circle cx="130" cy="35" r="3" /><circle cx="166" cy="52" r="3" />
+            </svg>
+            <h3>Direct</h3>
+            <strong>96.24</strong>
+          </article>
+          <article>
+            <svg viewBox="0 0 220 92" aria-hidden="true">
+              <path d="M20 65 C48 18 70 18 98 65 S148 112 200 30" />
+            </svg>
+            <h3>Phase</h3>
+            <strong>89.92</strong>
+          </article>
+          <article>
+            <svg viewBox="0 0 220 92" aria-hidden="true">
+              <path d="M20 75H200" />
+              <path d="M42 75V22M66 75V48M90 75V15M114 75V36M138 75V30M162 75V52M186 75V42" />
+            </svg>
+            <h3>Rate</h3>
+            <strong>84.74</strong>
+          </article>
+          <article>
+            <svg viewBox="0 0 220 92" aria-hidden="true">
+              <path d="M20 75H200" />
+              <path d="M34 20C62 44 96 58 130 65C156 70 178 72 198 74" />
+              <path d="M34 20V75M72 45V75M112 61V75M152 69V75M190 73V75" />
+            </svg>
+            <h3>TTFS</h3>
+            <strong>87.46</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="details">
+        <div class="detail-item">
+          <span>Foundation</span>
+          <p>Implemented as the official TEFormer codebase, built on STEP and BrainCog for unified Spiking Transformer evaluation.</p>
+        </div>
+        <div class="detail-item">
+          <span>Scope</span>
+          <p>Evaluated on CIFAR10/100, SVHN, CIFAR10-DVS, N-CALTECH101, NCARS, SHD, HMDB51-DVS, UCF101-DVS, sCIFAR, and sMNIST.</p>
+        </div>
+        <div class="detail-item">
+          <span>Efficiency</span>
+          <p>Temporal enhancement is concentrated in shallow layers, where low-level spatiotemporal patterns benefit most from fusion.</p>
+        </div>
+      </section>
+
+      <section class="citation" id="citation">
+        <div class="section-heading">
+          <p>Citation</p>
+          <h2>Reference TEFormer in your work.</h2>
+        </div>
+        <div class="bibtex">
+          <button class="copy-button" type="button" aria-label="Copy BibTeX">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 9h10v12H9z"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+          </button>
+          <pre><code>@inproceedings{shen2026teformer,
+  title={TEFormer: Structured Bidirectional Temporal Enhancement Modeling in Spiking Transformers},
+  author={Shen, Sicheng and Lv, Mingyang and Han, Bing and Zhao, Dongcheng and Shen, Guobin and Zhao, Feifei and Zeng, Yi},
+  booktitle={Proceedings of the 43rd International Conference on Machine Learning},
+  year={2026}
+}</code></pre>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>2026 TEFormer Authors</span>
+      <div>
+        <a href="https://arxiv.org/abs/2601.18274" target="_blank" rel="noreferrer">Paper</a>
+        <a href="https://github.com/Fancyssc/TEFormer" target="_blank" rel="noreferrer">GitHub</a>
+      </div>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite">BibTeX copied</div>
+    <script src="script.js"></script>
+  </body>
+</html>
